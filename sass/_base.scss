@@ -1,0 +1,93 @@
+///////////// --** BASE STYLES **-- \\\\\\\\\\\\\
+
+///////--CUSTOM CSS PROPERTIES--\\\\\\\
+:root {
+  //** Custom CSS property, which are called with var() function
+
+  ///////--COLORS--\\\\\\\
+  --color-primary: #eb2f64;
+  --color-primary-light: #ff3366;
+  --color-primary-dark: rgb(186, 38, 93);
+
+  --color-grey-light-1: #faf9f9;
+  --color-grey-light-2: #f4f2f2;
+  --color-grey-light-3: #f0eeee;
+  --color-grey-light-4: #ccc;
+
+  --color-grey-dark-1: #333;
+  --color-grey-dark-2: #777;
+  --color-grey-dark-3: #999;
+
+  ///////--SHADOWS--\\\\\\\
+  --shadow-dark: 0 2rem 6rem rgba(0, 0, 0, 0.3);
+  --shadow-dark: 0 2rem 6rem rgba(0, 0, 0, 0.3);
+  --shadow-light: 0 2rem 5rem rgba(0, 0, 0, 0.06);
+
+  ///////--LINE--\\\\\\\
+  --line: 1px solid var(--color-grey-light-2);
+}
+
+///////--VARIABLES--\\\\\\\
+//** bp (Break points) value variables.
+//** Container max-width is equal 1200px.
+//** 1em is equal 16px(user agent default font size).
+
+//** 1200px/16px=75em
+$bp-largest: 75em;
+//** 1100px/16px=68.75em
+$bp-large: 68.75em;
+//** 900px/16px=56.25em
+$bp-medium: 56.25em;
+//** 600px/16px=37.5em
+$bp-small: 37.5em;
+//** 500px/16px=31.25em
+$bp-smallest: 31.25em;
+
+///////--DECLARATIONS--\\\\\\\
+
+//** reset all margin & padding of user agents.
+* {
+  margin: 0;
+  padding: 0;
+}
+
+//** All elements, including pseudoelements,-
+//** will inherit border-box property from html
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+
+  ///////--TYPOGRAPHY--\\\\\\\
+  //** This difines what 1rem is
+  font-size: 62.5%; //1rem is 10px// (10px/16px)*100 = 62.5%
+
+  ///////--DESKTOP-FIRST APPROACH MEDIA QUERIES--\\\\\\\
+  //** In break point 1100px, will decrease global font size to 8px.
+  @media only screen and (max-width: $bp-large) {
+    //** (8px/16px)*100 = 50%.
+    font-size: 50%;
+  }
+}
+
+body {
+  ///////--TYPOGRAPHY--\\\\\\\
+  font-family: "open sans", sans-serif;
+  font-weight: 400;
+  line-height: 1.6;
+
+  //** Difault font color
+  color: var(--color-grey-dark-2);
+
+  background-image: linear-gradient(
+    to right bottom,
+    var(--color-primary-light),
+    var(--color-primary-dark)
+  );
+  background-size: cover;
+  min-height: 100vh;
+}
